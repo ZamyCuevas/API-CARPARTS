@@ -1,0 +1,54 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Parts Inventory</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page">
+
+        <div data-role="header">
+            <h1>AutoPartes "Zamy"</h1>
+            <a href="#navPanel" data-role="button" data-icon="bars" data-iconpos="notext" class="ui-btn-right">Menú</a>
+        </div>
+
+        <div data-role="content">
+            <h2>Bienvenido a AutoPartes "Zamy"</h2>
+            <p>Explora nuestra variedad de partes de carros y encuentra las piezas que necesitas para tu vehículo. Ofrecemos una amplia selección de productos de alta calidad.</p>
+            <p>Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos.</p>
+
+            <h3>Algunos productos destacados:</h3>
+            <ul data-role="listview" data-inset="true">
+                <% carParts.slice(0, 3).forEach(carPart => { %>
+                    <li><a href="#<%= carPart._id %>"><%= carPart.description %></a></li>
+                <% }); %>
+            </ul>
+
+            <img src="https://www.shutterstock.com/image-illustration/car-parts-auto-spare-isolated-260nw-2283939101.jpg" alt="Ejemplo de imagen" style="max-width: 100%; height: auto;">
+        </div>
+
+        <div data-role="panel" id="navPanel" data-position-fixed="true" data-theme="b">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close">Cerrar</a></li>
+                <li><a href="/partes/inicio" data-rel="close">Inicio</a></li>
+                <li><a href="/partes/mostrar" data-rel="close">Auto Partes</a></li>
+                <li><a href="/partes/edieli" data-rel="close">Editar o Eliminar</a></li>
+                <li><a href="/partes/agregar" data-rel="close">Agregar</a></li>
+            </ul>
+        </div>
+
+        <div data-role="footer">
+            <h4>© 2024 Auto Partes "Zamy"</h4>
+        </div>
+
+    </div>
+
+</body>
+</html>

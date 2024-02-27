@@ -1,0 +1,77 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Parts Inventory</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page">
+
+        <div data-role="header">
+            <h1>AutoPartes "Zamy"</h1>
+            <a href="#navPanel" data-role="button" data-icon="bars" data-iconpos="notext" class="ui-btn-right">Menú</a>
+        </div>
+
+        <div data-role="content">
+            <form action="/" method="POST">
+                <div data-role="fieldcontain">
+                    <label for="txt_partNumber">Número de parte:</label>
+                    <input type="text" name="partNumber" id="txt_partNumber" placeholder="Número de parte" required>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txt_description">Descripción:</label>
+                    <input type="text" name="description" id="txt_description" placeholder="Descripción">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txt_brand">Marca:</label>
+                    <input type="text" name="brand" id="txt_brand" placeholder="Marca">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txt_price">Precio:</label>
+                    <input type="number" name="price" id="txt_price" placeholder="Precio" step="0.01" min="0">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txt_condition">Condición:</label>
+                    <input type="text" name="condition" id="txt_condition" placeholder="Condición">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txt_stock">Existencias:</label>
+                    <input type="number" name="stock" id="txt_stock" placeholder="Existencias" min="0">
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="txt_status">Estado:</label>
+                    <select name="status" id="txt_status" data-role="slider">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-mini">Guardar</button>
+            </form>
+            
+        </div>
+
+        <div data-role="panel" id="navPanel" data-position-fixed="true" data-theme="b">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close">Cerrar</a></li>
+                <li><a href="/partes/inicio" data-rel="close">Inicio</a></li>
+                <li><a href="/partes/mostrar" data-rel="close">Auto Partes</a></li>
+                <li><a href="/partes/edieli" data-rel="close">Editar o Eliminar</a></li>
+                <li><a href="/partes/agregar" data-rel="close">Agregar</a></li>
+            </ul>
+        </div>
+
+        <div data-role="footer">
+            <h4>© 2024 Auto Partes "Zamy"</h4>
+        </div>
+
+    </div>
+
+</body>
+</html>

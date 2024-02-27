@@ -1,0 +1,65 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Parts Inventory</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page">
+
+        <div data-role="header">
+            <h1>AutoPartes "Zamy"</h1>
+            <a href="#navPanel" data-role="button" data-icon="bars" data-iconpos="notext" class="ui-btn-right">Menú</a>
+        </div>
+
+        <div data-role="content">
+            <form>
+                <input data-type="search" id="searchForCollapsibleSet">
+            </form>
+            
+            <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">    
+                <% carParts.forEach((part)=>{ %>
+                    <div data-role="collapsible" data-filtertext="<%= part.description %>">
+                        <h3><%= part.description %></h3>
+                        <ul data-role="listview" data-inset="false">
+                            <li>Número de parte: <%= part.partNumber %></li>
+                            <li>Descripción: <%= part.description %></li>
+                            <li>Marca: <%= part.brand %></li>
+                            <li>Precio: <%= part.price %></li>
+                            <li>Condición: <%= part.condition %></li>
+                            <li>Existencias: <%= part.stock %></li>
+                            <li>Estado: <%= part.status ? 'Activo' : 'Inactivo' %></li>
+                            <button><a style="text-decoration: none; color: black;" href="/<%= part.partNumber %>">Editar</a></button>
+                            <button><a style="text-decoration: none; color: black;" href="/deleteOne/<%= part.partNumber %>">Eliminar</a></button>
+                        </ul>
+                    </div>
+                <% }) %>
+            </div>
+            
+        </div>
+
+        <div data-role="panel" id="navPanel" data-position-fixed="true" data-theme="b">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close">Cerrar</a></li>
+                <li><a href="/partes/inicio" data-rel="close">Inicio</a></li>
+                <li><a href="/partes/mostrar" data-rel="close">Auto Partes</a></li>
+                <li><a href="/partes/edieli" data-rel="close">Editar o Eliminar</a></li>
+                <li><a href="/partes/agregar" data-rel="close">Agregar</a></li>
+            </ul>
+        </div>
+
+        <div data-role="footer">
+            <h4>© 2024 Auto Partes "Zamy"</h4>
+        </div>
+
+    </div>
+
+</body>
+</html>
